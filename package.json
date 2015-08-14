@@ -25,6 +25,8 @@
     "express": "^4.13.3"
   },
   "devDependencies": {
+    "babel": "^5.8.21",
+    "babel-core": "^5.8.22",
     "gulp": "^3.9.0",
     "gulp-babel": "^5.2.0",
     "gulp-sourcemaps": "^1.5.2"
