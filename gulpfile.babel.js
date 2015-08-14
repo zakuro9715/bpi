@@ -3,10 +3,12 @@
 var gulp = require('gulp')
 
 var babel = require('gulp-babel')
+var browserify = require('browserify')
 var bHtml = require('gulp-b-html')
 var gls = require('gulp-live-server')
 var sourcemaps = require('gulp-sourcemaps')
-
+var source = require('vinyl-source-stream');
+var buffer = require('vinyl-buffer');
 var paths = require('./paths')
 
 gulp.task('es6', () =>
@@ -32,12 +34,24 @@ gulp.task('b-html', () =>
     .pipe(gulp.dest('./dist/static'))
 )
 
+gulp.task('browserify', () => {
+  var b = browserify({
+    entries: paths.clientApp
+  })
+  return b.bundle()
+    .pipe(source('app.js'))
+    .pipe(buffer())
+    .pipe(sourcemaps.init({loadMaps: true}))
+    .pipe(sourcemaps.write('./'))
+    .pipe(gulp.dest('./dist/static'));
+})
 
-gulp.task('build', ['es6', 'b-html'])
+gulp.task('build', ['es6', 'b-html', 'browserify'])
 
 gulp.task('watch', ['build'], () => {
   gulp.watch(paths.es6, ['es6'])
   gulp.watch(paths.bHtml, ['b-html'])
+  gulp.watch(paths.clientApp, ['browserify'])
 })
 
 gulp.task('default', ['watch'])
