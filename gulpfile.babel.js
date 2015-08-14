@@ -15,7 +15,7 @@ gulp.task('es6', () =>
     .pipe(gulp.dest('dist'))
 )
 
-gulp.task('serve', function() {
+gulp.task('serve', ['watch'], function() {
   var server = gls.new('app.js')
   server.start()
   gulp.watch('src/**/*.js', () => { 
@@ -24,4 +24,8 @@ gulp.task('serve', function() {
   })
 })
 
-gulp.task('default', ['es6'])
+gulp.task('watch', ['es6'], () => {
+  gulp.watch('src/**/*.js', ['es6'])
+})
+
+gulp.task('default', ['watch'])
