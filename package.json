@@ -22,6 +22,7 @@
   "homepage": "https://github.com/zakuro9715/bpi#readme",
   "dependencies": {
     "b-html": "^0.7.0",
+    "body-parser": "^1.13.3",
     "express": "^4.13.3"
   },
   "devDependencies": {
