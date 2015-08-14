@@ -3,6 +3,7 @@
 var gulp = require('gulp')
 
 var babel = require('gulp-babel')
+var bHtml = require('gulp-b-html')
 var gls = require('gulp-live-server')
 var sourcemaps = require('gulp-sourcemaps')
 
@@ -23,6 +24,12 @@ gulp.task('serve', ['watch'], function() {
     server.start.call(server) 
   })
 })
+
+gulp.task('b-html', () =>
+  gulp.src('./client/**/*.bhtml')
+    .pipe(bHtml())
+    .pipe(gulp.dest('./dist/static'))
+)
 
 gulp.task('watch', ['es6'], () => {
   gulp.watch('server/**/*.js', ['es6'])
