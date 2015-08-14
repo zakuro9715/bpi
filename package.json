@@ -32,6 +32,7 @@
     "gulp-babel": "^5.2.0",
     "gulp-live-server": "0.0.23",
     "gulp-sourcemaps": "^1.5.2",
+    "vue": "^0.12.10",
     "webpack": "^1.11.0"
   }
 }
