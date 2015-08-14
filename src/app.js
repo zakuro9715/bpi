@@ -4,10 +4,6 @@ var bodyParser = require('body-parser')
 
 app.use(bodyParser.json());
 
-app.get('/', function (req, res) {
-  res.send('Hello World!')
-})
-
 app.use('/compile', require('./routes/compile'))
 
 var server = app.listen(3000, function () {
