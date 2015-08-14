@@ -7,9 +7,10 @@ var bHtml = require('gulp-b-html')
 var gls = require('gulp-live-server')
 var sourcemaps = require('gulp-sourcemaps')
 
+var paths = require('./paths')
 
 gulp.task('es6', () =>
-  gulp.src('server/**/*.js')
+  gulp.src(paths.es6)
     .pipe(sourcemaps.init())
     .pipe(babel())
     .pipe(sourcemaps.write('.'))
@@ -19,14 +20,14 @@ gulp.task('es6', () =>
 gulp.task('serve', ['watch'], function() {
   var server = gls.new('app.js')
   server.start()
-  gulp.watch('server/**/*.js', () => {
+  gulp.watch(paths.es6, () => {
     console.log('Restarting server...')
     server.start.call(server) 
   })
 })
 
 gulp.task('b-html', () =>
-  gulp.src('./client/**/*.bhtml')
+  gulp.src(paths.bHtml)
     .pipe(bHtml())
     .pipe(gulp.dest('./dist/static'))
 )
@@ -35,8 +36,8 @@ gulp.task('b-html', () =>
 gulp.task('build', ['es6', 'b-html'])
 
 gulp.task('watch', ['build'], () => {
-  gulp.watch('./server/**/*.js', ['es6'])
-  gulp.watch('./clist/**/*.bhtml', ['b-html'])
+  gulp.watch(paths.es6, ['es6'])
+  gulp.watch(paths.bHtml, ['b-html'])
 })
 
 gulp.task('default', ['watch'])
