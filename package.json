@@ -42,8 +42,6 @@
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0",
     "vue": "^0.12.10",
-    "vue-loader": "^2.1.1",
-    "vueify": "^1.1.5",
-    "webpack": "^1.11.0"
+    "vueify": "^1.1.5"
   }
 }
