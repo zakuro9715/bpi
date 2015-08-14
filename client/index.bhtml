@@ -1,9 +1,15 @@
-><!doctype html>
+><!DOCTYPE html>
 <html
-  <title
-    BPI b-html compile API
-<body
-  <h1
-    BPI
-  <script
-    @src /app.js
+  <head
+    <title
+      BPI b-html compile API
+  <body
+    @id app
+    <h1
+      BPI
+    <textarea
+      @v-model html
+    <div
+      {{html}}
+    <script
+      @src /app.js
