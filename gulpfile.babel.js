@@ -31,8 +31,12 @@ gulp.task('b-html', () =>
     .pipe(gulp.dest('./dist/static'))
 )
 
-gulp.task('watch', ['es6'], () => {
-  gulp.watch('server/**/*.js', ['es6'])
+
+gulp.task('build', ['es6', 'b-html'])
+
+gulp.task('watch', ['build'], () => {
+  gulp.watch('./server/**/*.js', ['es6'])
+  gulp.watch('./clist/**/*.bhtml', ['b-html'])
 })
 
 gulp.task('default', ['watch'])
