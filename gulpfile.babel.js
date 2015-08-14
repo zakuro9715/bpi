@@ -3,6 +3,7 @@
 var gulp = require('gulp')
 
 var babel = require('gulp-babel')
+var babelify = require('babelify')
 var browserify = require('browserify')
 var bHtml = require('gulp-b-html')
 var gls = require('gulp-live-server')
@@ -36,7 +37,8 @@ gulp.task('b-html', () =>
 
 gulp.task('browserify', () => {
   var b = browserify({
-    entries: paths.clientApp
+    entries: paths.clientApp,
+    transform: [babelify],
   })
   return b.bundle()
     .pipe(source('app.js'))
