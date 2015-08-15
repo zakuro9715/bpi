@@ -1,4 +1,5 @@
 var Vue = require('vue')
+Vue.use(require('vue-resource'));
 
 var vm = new Vue({
   el: '#app',
@@ -8,19 +9,12 @@ var vm = new Vue({
   },
   methods: {
     compile: function(html) {
-      var req = new XMLHttpRequest()
-      var self = this;
-      req.onreadystatechange = () => {
-        if(req.readyState != 4)
-          return  // haven't completed
-        if(req.status == 200)
-          this.html = JSON.parse(req.response).html
-        else
-          this.html = 'Error!'
-      }
-      req.open('POST', '/compile')
-      req.setRequestHeader('Content-Type', 'application/json')
-      req.send(JSON.stringify({'b-html': this.bHtml}))
+      var data = {'b-html': this.bHtml }
+      this.$http.post('/compile', data, (data, status) => {
+        this.html = data.html
+      }).error((data, status, req) => {
+        this.html = 'Error!'
+      })
     }
   },
   watch: {
