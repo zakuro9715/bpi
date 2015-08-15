@@ -54,7 +54,7 @@ gulp.task('build', ['es6', 'b-html', 'browserify'])
 gulp.task('watch', ['build'], () => {
   gulp.watch(paths.es6, ['es6'])
   gulp.watch(paths.bHtml, ['b-html'])
-  gulp.watch(paths.clientApp, ['browserify'])
+  gulp.watch(paths.clientAppTriger, ['browserify'])
 })
 
 gulp.task('default', ['watch'])
