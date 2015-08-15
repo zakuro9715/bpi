@@ -40,6 +40,7 @@
     "html-loader": "^0.3.0",
     "insert-css": "^0.2.0",
     "style-loader": "^0.12.3",
+    "stylus": "^0.52.0",
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0",
     "vue": "^0.12.10",
