@@ -1,8 +1,20 @@
 <template>
-  <textarea v-model='bHtml'></textarea>
+  <div class="b-editor__main">
+    <textarea v-model='bHtml' class="b-editor__textarea"></textarea>
+    <div class="b-editor__result"><pre>{{ html | formatHtml indentSize }}</pre></div>
+  </div>
   <label>Indent size:<input type="number" v-model='indentSizeRaw'></label>
-  <div><pre>{{ html | formatHtml indentSize }}</pre></div>
 </template>
+
+<style lang="stylus">
+.b-editor__main
+  display flex
+  width 100%
+.b-editor__textarea
+  width 50%
+.b-editor__result
+  width 50%
+</style>
 
 <script lang="es6">
 module.exports = {
