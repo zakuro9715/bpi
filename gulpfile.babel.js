@@ -10,6 +10,7 @@ var gls = require('gulp-live-server')
 var sourcemaps = require('gulp-sourcemaps')
 var source = require('vinyl-source-stream');
 var buffer = require('vinyl-buffer');
+var vueify = require('vueify')
 var paths = require('./paths')
 
 gulp.task('es6', () =>
@@ -38,7 +39,7 @@ gulp.task('b-html', () =>
 gulp.task('browserify', () => {
   var b = browserify({
     entries: paths.clientApp,
-    transform: [babelify],
+    transform: [babelify, vueify],
   })
   return b.bundle()
     .pipe(source('app.js'))

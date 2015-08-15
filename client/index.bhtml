@@ -7,9 +7,6 @@
     @id app
     <h1
       BPI
-    <textarea
-      @v-model bHtml
-    <div
-      {{html}}
+    <b-editor
     <script
       @src /app.js
