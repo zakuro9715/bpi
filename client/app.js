@@ -6,4 +6,7 @@ var vm = new Vue({
   components: {
     'b-editor': require('./components/b-editor.vue'),
   },
+  filters: {
+    formatHtml: require('./filters/formatHtml'),
+  },
 })

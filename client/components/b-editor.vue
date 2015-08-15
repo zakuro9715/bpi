@@ -1,19 +1,19 @@
 <template>
-  <div class="b-editor__main">
-    <textarea v-model='bHtml' class="b-editor__textarea"></textarea>
-    <div class="b-editor__result"><pre>{{ html | formatHtml indentSize }}</pre></div>
-  </div>
+  <div>
+    <div class="pure-g">
+      <div class="pure-u-1-2">
+        <textarea v-model='bHtml'></textarea>
+      </div>
+      <div class="pure-u-1-2">
+        <textarea readonly>{{ html | formatHtml indentSize }}</textarea>
+      </div>
+    </div>
   <label>Indent size:<input type="number" v-model='indentSizeRaw'></label>
+  </label
 </template>
 
 <style lang="stylus">
-.b-editor__main
-  display flex
-  width 100%
-.b-editor__textarea
-  width 50%
-.b-editor__result
-  width 50%
+
 </style>
 
 <script lang="es6">
@@ -39,9 +39,6 @@ module.exports = {
         this.html = 'Error!'
       })
     }
-  },
-  filters: {
-    formatHtml: require('../filters/formatHtml'),
   },
   watch: {
     bHtml: 'compile',
