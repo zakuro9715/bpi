@@ -1,6 +1,6 @@
 <template>
   <textarea v-model='bHtml'></textarea>
-  <div>{{html}}</div>
+  <div><pre>{{ html | formatHtml 2 }}</pre></div>
 </template>
 
 <script lang="es6">
@@ -20,6 +20,9 @@ module.exports = {
         this.html = 'Error!'
       })
     }
+  },
+  filters: {
+    formatHtml: require('../filters/formatHtml'),
   },
   watch: {
     bHtml: 'compile',
