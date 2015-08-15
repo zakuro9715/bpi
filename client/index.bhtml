@@ -3,6 +3,9 @@
   <head
     <title
       BPI b-html compile API
+    <link
+      @rel stylesheet
+      @href http://yui.yahooapis.com/pure/0.6.0/pure-min.css
   <body
     @id app
     <h1
