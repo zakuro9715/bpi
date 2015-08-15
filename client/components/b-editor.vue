@@ -1,6 +1,7 @@
 <template>
   <textarea v-model='bHtml'></textarea>
-  <div><pre>{{ html | formatHtml 2 }}</pre></div>
+  <label>Indent size:<input type="number" v-model='indentSizeRaw'></label>
+  <div><pre>{{ html | formatHtml indentSize }}</pre></div>
 </template>
 
 <script lang="es6">
@@ -9,6 +10,12 @@ module.exports = {
     return {
       html: '',
       bHtml: '',
+      indentSizeRaw: null,
+    }
+  },
+  computed: {
+    indentSize: function() {
+      return this.indentSizeRaw || 2;
     }
   },
   methods: {
