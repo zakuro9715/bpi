@@ -11,8 +11,10 @@
       @href /style.css
   <body
     @id app
-    <h1
-      BPI
-    <b-editor
-    <script
-      @src /app.js
+    <div
+      @class container
+      <h1
+        BPI
+      <b-editor
+      <script
+        @src /app.js

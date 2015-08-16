@@ -15,10 +15,15 @@
   justify-content space-between
 .b-editor__input,
 .b-editor__preview
-  width 40%
-  box-sizing border-box
+  width 50%
+.b-editor__input
+  padding-right: 12px
+.b-editor__preview
+  padding-left: 12px
 .b-editor__textarea
   width 100%
+  height 400px
+  resize none
 </style>
 
 <script lang="es6">
@@ -26,13 +31,26 @@ module.exports = {
   data: function() {
     return {
       html: '',
-      bHtml: '',
-      indentSizeRaw: null,
-    }
-  },
-  computed: {
-    indentSize: function() {
-      return this.indentSizeRaw || 2;
+      bHtml:
+        '<!doctype html\n' +
+        '<html\n' +
+        '  @lang en\n' +
+        '  <head\n' +
+        '    </meta\n' +
+        '      @charset utf-8\n' +
+        '    <title\n' +
+        '      TITLE\n' +
+        '  <body\n' +
+        '    <!--comment\n' +
+        '    <h1\n' +
+        '      @class title\n' +
+        '      HEADLINE\n' +
+        '    <p\n' +
+        '      Hello, b-html!\n' +
+        '      >@bouzuya\n' +
+        '      </img\n' +
+        '        @alt sample image\n' +
+        '        @src /images/sample.png\n',
     }
   },
   methods: {
@@ -45,6 +63,7 @@ module.exports = {
       })
     }
   },
+  ready: function() { this.compile() },
   watch: {
     bHtml: 'compile',
   },
