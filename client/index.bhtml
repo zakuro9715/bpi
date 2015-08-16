@@ -3,6 +3,9 @@
   <head
     <title
       BPI b-html compile API
+    <link
+      @rel stylesheet
+      @href /style.css
   <body
     @id app
     <h1
