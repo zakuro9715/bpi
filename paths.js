@@ -5,7 +5,7 @@ module.exports = () => {
   }
   paths.clientApp = [paths.client + '/app.js']
   paths.clientAppTriger = [paths.client + '/**/*.{vue,js}']
-  paths.stylus = [paths.client + '/**/*.stylus']
+  paths.stylus = [paths.client + '/**/*.styl']
   paths.es6 = [paths.server + '/**/*.js']
   paths.bHtml = [paths.client + '/**/*.bhtml']
   return paths;
