@@ -5,11 +5,9 @@
         <textarea v-model='bHtml'></textarea>
       </div>
       <div class="pure-u-1-2">
-        <textarea readonly>{{ html | formatHtml indentSize }}</textarea>
+        <textarea readonly>{{ html | formatHtml 2 }}</textarea>
       </div>
     </div>
-  <label>Indent size:<input type="number" v-model='indentSizeRaw'></label>
-  </label
 </template>
 
 <style lang="stylus">
