@@ -8,6 +8,7 @@ var browserify = require('browserify')
 var bHtml = require('gulp-b-html')
 var gls = require('gulp-live-server')
 var sourcemaps = require('gulp-sourcemaps')
+var stylus = require('gulp-stylus')
 var source = require('vinyl-source-stream');
 var buffer = require('vinyl-buffer');
 var vueify = require('vueify')
@@ -36,6 +37,12 @@ gulp.task('b-html', () =>
     .pipe(gulp.dest('./dist/static'))
 )
 
+gulp.task('stylus', () => {
+  return gulp.src(paths.stylus)
+    .pipe(stylus())
+    .pipe(gulp.dest('./dist/static'))
+})
+
 gulp.task('browserify', () => {
   var b = browserify({
     entries: paths.clientApp,
@@ -49,11 +56,12 @@ gulp.task('browserify', () => {
     .pipe(gulp.dest('./dist/static'));
 })
 
-gulp.task('build', ['es6', 'b-html', 'browserify'])
+gulp.task('build', ['es6', 'b-html', 'stylus', 'browserify'])
 
 gulp.task('watch', ['build'], () => {
   gulp.watch(paths.es6, ['es6'])
   gulp.watch(paths.bHtml, ['b-html'])
+  gulp.watch(paths.stylus, ['stylus'])
   gulp.watch(paths.clientAppTriger, ['browserify'])
 })
 
