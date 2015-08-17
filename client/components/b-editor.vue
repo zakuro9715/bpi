@@ -24,6 +24,7 @@
   width 100%
   height 400px
   resize none
+  border solid 1px lighten(#0077CF, 30%)
 </style>
 
 <script lang="es6">
