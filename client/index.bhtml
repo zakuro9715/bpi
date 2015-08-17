@@ -5,12 +5,16 @@
       BPI b-html compile API
     <link
       @rel stylesheet
+      @href http://fonts.googleapis.com/css?family=Exo 
+    <link
+      @rel stylesheet
       @href https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css
     <link
       @rel stylesheet
       @href /style.css
   <body
     @id app
+    <b-header
     <div
       @class container
       <h1
