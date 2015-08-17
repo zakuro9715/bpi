@@ -11,6 +11,7 @@
 
 <style lang="stylus">
 .b-editor
+  margin 64px 0
   display flex
   justify-content space-between
 .b-editor__input,

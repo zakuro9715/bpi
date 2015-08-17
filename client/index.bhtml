@@ -17,8 +17,6 @@
     <b-header
     <div
       @class container
-      <h1
-        BPI
       <b-editor
       <script
         @src /app.js
